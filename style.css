@@ -1,0 +1,88 @@
+
+/* ---------------------------top div of the page ----------------------- */
+/* Get all user heading  */
+#get-users {
+    background-color: aliceblue;
+    margin-top: 10%;
+    padding: 20px;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+}
+
+/* fetch button style  */
+#fetch {
+    margin-top: 30px;
+    padding: 10px 50px;
+    display: inline-block;
+}
+
+
+/* search bar div    */
+#search-div{
+    margin-top: 10px;
+}
+
+/*---------- user table  styles---------------- */
+#users-table{
+    
+    margin: auto;
+    background-color: rgb(79, 193, 197);
+    border: black solid 1px;
+}
+
+
+/* -----------------------table heading and table data styles------------------------ */
+th,td{
+    width: 200px;
+    padding-left: 20px;
+    padding-top: 5px;
+}
+
+
+
+/* ---------------delete button---------------- */
+.fa-trash{
+    color: red;
+    margin-left: 20px;
+}
+
+
+
+
+/* --------------page numbering paras----------------- */
+div p{
+    
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: chocolate;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid black;
+    margin: auto;
+}
+
+
+/* --------------------------- input check box style --------------------- */
+/* Hide the default checkbox */
+label input {
+    display: none; 
+}
+  
+  /* Style the artificial checkbox */
+label span {
+    height: 20px;
+    width: 20px;
+    border: 1px solid rgb(0, 0, 0);
+    display: inline-block;
+    position: relative;
+}
+  
+/* Style its checked state...with a ticked icon */
+[type=checkbox]:checked + span:before {
+    content: '\2714';
+    position: absolute;
+    top: -5px;
+    left: 0;
+}

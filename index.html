@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Geektrust Users</title>
+
+        <!-- styles of page  -->
+        <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+<body>
+
+    <!-- top div of page  -->
+    <div id="get-users">
+
+        <!-- heading of the page  -->
+        <h1 >Get all the Users</h1>
+        <!-- button to fetch all users  -->
+        <button type="button" id="fetch">Fetch All Users</button>
+
+        <!-- search bar to search users with keyword  -->
+        <div id="search-div">
+            <input id="searchtext" type="text" style="width:400px" placeholder="Enter Name, Email or Role of user to search">
+            <button id=search>Search</button>
+        </div>
+        
+    </div>
+
+
+    
+
+    <!-- table for data of all users  -->
+    <table id="users-table">
+        <tr>
+            <th> </th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th id="action">Actions</th>
+        </tr>
+    </table>
+
+    <!-- delete selcted button  -->
+    <button id="delete-select">Delete Selected</button>
+
+    <!-- bottom nav pages div -->
+    <div id="bottomNav" class="bottom-Nav" style="width:500px; display: flex; margin-left: auto; padding-right: 300px; margin-top: 10px; "></div>
+    
+
+    <!-- scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
