@@ -1,8 +1,12 @@
+body{
+    background-image: linear-gradient(aqua,rgb(255, 255, 255),rgb(113, 236, 252));
+}
+
 
 /* ---------------------------top div of the page ----------------------- */
 /* Get all user heading  */
 #get-users {
-    background-color: aliceblue;
+    background-image: linear-gradient(aqua,rgb(255, 255, 255),rgb(113, 236, 252));
     margin-top: 10%;
     padding: 20px;
     margin: auto;
@@ -27,7 +31,7 @@
 #users-table{
     
     margin: auto;
-    background-color: rgb(79, 193, 197);
+    background-image: linear-gradient(aqua,rgb(255, 255, 255),rgb(113, 236, 252));
     border: black solid 1px;
     
 }
@@ -65,6 +69,19 @@ div p{
 }
 
 
+/* button styles  */
+button{
+    background-color: rgb(0, 255, 179);
+}
+
+/* hover on button  */
+button:hover{
+    background-color: rgb(240, 146, 6);
+    color: white;
+    box-shadow: rgb(179, 179, 179) 3px 3px;
+}
+
+
 /* --------------------------- input check box style --------------------- */
 /* Hide the default checkbox */
 label input {
@@ -95,7 +112,7 @@ label span {
 
 /* ---------------------------------edit box ------------------------------------- */
 #edit-box{
-    background-color: aqua;
+    background-image: linear-gradient(aqua,rgb(255, 255, 255),rgb(113, 236, 252));
     border: 1px solid black;
     border-radius: 20px;
     z-index: 2;

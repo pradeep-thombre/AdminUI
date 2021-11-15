@@ -6,7 +6,7 @@ var tempMap=new Map();
 var selectedItem=[];
 var pageNum=1;
 var editId;
-
+$("#delete-select").hide();
 // fetching data and storing in list 
 function fetchData(){
 
@@ -56,7 +56,7 @@ function loadData(tempuserMap,pageNums){
 
     // calling function to add title 
     addingTitles();
-    
+    $("#delete-select").show();
     // iterating over list 
     for (const [key, value] of tempuserMap.entries()) {
         
