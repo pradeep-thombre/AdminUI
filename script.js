@@ -1,12 +1,15 @@
 // declaring variables
-var userList= [];
-var tempList=[];
+// using hashmap to store users data 
+var userMap= new Map();
+var tempMap=new Map();
+
 var selectedItem=[];
 var pageNum=1;
+var editId;
 
 // fetching data and storing in list 
 function fetchData(){
-    tempList=[];
+
     $("#bottomNav").empty();
     $.get("https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json", function (data) {
             
@@ -19,9 +22,9 @@ function fetchData(){
                     email:user.email,
                     role:user.role,
                 }
-                // pushing doc in bth list 
-                userList.push(doc);
-                tempList.push(doc);
+                // adding doc in both map with id as key 
+                userMap.set(user.id,doc);
+                tempMap.set(user.id,doc);
             }
     });
 }
@@ -43,7 +46,7 @@ function addingTitles(){
 
 
 // loading data 
-function loadData(tempUserList,num){
+function loadData(tempuserMap,pageNums){
     var count=0;
     pages=1;
 
@@ -55,8 +58,7 @@ function loadData(tempUserList,num){
     addingTitles();
     
     // iterating over list 
-    for (let user of tempUserList) {
-
+    for (const [key, value] of tempuserMap.entries()) {
         
         if(count++%10==0){
             $("#bottomNav").append(`<p onClick="para_click('${pages}')">${pages++}</p>`);
@@ -66,23 +68,23 @@ function loadData(tempUserList,num){
         // if count is in 10 * pagenum and next 9 elements
 
         // checking data 
-        if(count>num*10 && count<=(num+1)*10){
+        if(count>pageNums*10 && count<=(pageNums+1)*10){
 
             // adding to table
             $("#users-table").append(`
-                <tr id="row-${user.id}">
+                <tr id="row-${key}">
                     <td>    
-                        <label onClick="check_click('${user.id}')">
+                        <label onClick="check_click('${key}')">
                             <input class="check" type="checkbox"  >
                             <span></span>
                         </label>
                     </td>
-                    <td>${user.name}</td>
-                    <td>${user.email}</td>
-                    <td>${user.role}</td>
+                    <td>${value.name}</td>
+                    <td>${value.email}</td>
+                    <td>${value.role}</td>
                     <td>
-                        <i class="fas fa-user-edit"></i>
-                        <i onClick="del_click('${user.id}')" class="fas fa-trash"></i>
+                        <i onClick="edit_click('${key}')" class="fas fa-user-edit"></i>
+                        <i onClick="del_click('${key}')" class="fas fa-trash"></i>
                     </td>
                 </tr>
             `);
@@ -94,27 +96,27 @@ function loadData(tempUserList,num){
 // function to load data after searching text from input box 
 function loadSearchedData(text){
 
-    // empty the temp list as iterating again to insert data in templist 
-    tempList=[];
+    // empty the temp list as iterating again to insert data in tempMap 
+    tempMap=new Map();
     pageNum=1;
 
-    // iterating on list 
-    for (let user of userList) {
+    // iterating on map 
+    for (const [key, value] of userMap.entries()) {
 
         // if text is present in name, role, email then adding to list 
-        if((user.name).includes(text) ||(user.email).includes(text)||(user.role).includes(text)){
-            tempList.push(user);
+        if((value.name).includes(text) ||(value.email).includes(text)||(value.role).includes(text)){
+            tempMap.set(key,value);
         }
     }
 
     // reloading data in table 
-    loadData(tempList,0);
+    loadData(tempMap,0);
 }
 
 // function to handle para_click( bottom pafge numbers clicked)
 function para_click(clicked_id){
-    pageNum=clicked_id-1;
-    loadData(tempList,pageNum);
+    pageNum=clicked_id;
+    loadData(tempMap,pageNum-1);
 }
 
 // function to handle check box clicked 
@@ -123,15 +125,22 @@ function check_click(clicked_id){
     selectedItem.push(clicked_id);
 }
 
-
+$('#edit-box').hide();
+function edit_click(clicked_id){
+    console.log(clicked_id);
+    $("#edit-box").show();
+    $("#edit-name").val(tempMap.get(clicked_id).name);
+    $("#edit-email").val(tempMap.get(clicked_id).email);
+    $("#edit-role").val(tempMap.get(clicked_id).role);
+    editId=tempMap.get(clicked_id).id;
+}
 
 // handling del application searching and deleting user
 function del_click(clicked_id){
-    let userIndex=tempList.findIndex(user => user.id == clicked_id);
-    tempList.splice(userIndex,1);
 
+    tempMap.delete(clicked_id);
     // reloading data after delete 
-    loadData(tempList,0);
+    loadData(tempMap,0);
 }
 
 // searching data and reloading data 
@@ -146,8 +155,26 @@ $("#searchtext").keyup(function() {
 $("#fetch").click(function () {
     $("#get-users #button").remove();
     $("#get-users h1").html('All Users');
-    loadData(userList,0);
+    fetchData();
+    loadData(userMap,0);
     
+});
+
+$("#update-button").click(function () {
+    $('#edit-box').hide();
+
+    var doc={
+        id:editId,
+        name:$("#edit-name").val(),
+        email:$("#edit-email").val(),
+        role:$("#edit-role").val(),
+    }
+    
+    // pushing doc in bth list 
+    userMap.set(editId,doc);
+    tempMap.set(editId,doc);
+    loadData(tempMap,pageNum-1);
+
 });
 
 // searching data and reloading data 
@@ -158,21 +185,11 @@ $("#search").click( function(){
 
 // handling delete select action 
 $("#delete-select").click( function(){
-
-    // ieterating over list in reverse order 
-    for (var i = tempList.length - 1; i >= 0; i--) {
-        let user=tempList[i];
-
-        // if user id is present in selectedItem list then appliying splice function on it. 
-        
-        if(selectedItem.includes(user.id)){
-            let userIndex=tempList.findIndex(data => data == user);
-            tempList.splice(userIndex,1);
-        }
+    for (let user of selectedItem) {
+        tempMap.delete(user);
     }
-
     // relaoding data 
-    loadData(tempList,0);
+    loadData(tempMap,0);
 
     // emptying the selectedItem list 
     selectedItem=[];

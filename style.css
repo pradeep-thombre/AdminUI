@@ -29,6 +29,7 @@
     margin: auto;
     background-color: rgb(79, 193, 197);
     border: black solid 1px;
+    
 }
 
 
@@ -85,4 +86,52 @@ label span {
     position: absolute;
     top: -5px;
     left: 0;
+}
+
+#delete-select{
+    margin-left: 10%;
+    margin-top: 10px;
+}
+
+/* ---------------------------------edit box ------------------------------------- */
+#edit-box{
+    background-color: aqua;
+    border: 1px solid black;
+    border-radius: 20px;
+    z-index: 2;
+    position: absolute;
+    width: 30%;
+    left: 33%;
+    top: 20%;
+    padding: 20px 0px;
+}
+
+/* heading in edit box  */
+#edit-box h3{
+    width: 100%;
+    text-align: center;
+}
+
+/* user image in edit box  */
+#edit-box img{
+    width: 100%;
+    text-align: center;
+    padding: 5px 30%;
+}
+
+/* input fields in edit box  */
+#edit-box input{
+    width: 70%;
+    margin: 5px 15%;
+    border-radius: 10px;
+    padding: 2px 10px;
+    font-size: 15px;
+}
+
+/* update button in edit box  */
+#edit-box button{
+    width: 70%;
+    margin: 5px 15%;
+    border-radius: 10px;
+    padding: 2px 10px;
 }
