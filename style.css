@@ -27,11 +27,16 @@ body{
     margin-top: 10px;
 }
 
+#searchtext {
+    width: 400px;
+}
+
+
 /*---------- user table  styles---------------- */
 #users-table{
     
     margin: auto;
-    background-image: linear-gradient(aqua,rgb(255, 255, 255),rgb(113, 236, 252));
+    background-image: linear-gradient(to right bottom, aqua,rgb(255, 255, 255),rgb(113, 236, 252));
     border: black solid 1px;
     
 }
@@ -57,11 +62,10 @@ th,td{
 
 /* --------------page numbering paras----------------- */
 div p{
-    
-    height: 30px;
-    width: 30px;
+    margin-top: 2px;
+    height: 25px;
+    width: 25px;
     border-radius: 50%;
-    background-color: chocolate;
     display: inline-block;
     text-align: center;
     border: 1px solid black;
@@ -80,6 +84,9 @@ button:hover{
     color: white;
     box-shadow: rgb(179, 179, 179) 3px 3px;
 }
+
+
+
 
 
 /* --------------------------- input check box style --------------------- */
@@ -106,9 +113,12 @@ label span {
 }
 
 #delete-select{
-    margin-left: 10%;
+    margin-left: 18%;
     margin-top: 10px;
 }
+
+
+
 
 /* ---------------------------------edit box ------------------------------------- */
 #edit-box{
@@ -117,7 +127,8 @@ label span {
     border-radius: 20px;
     z-index: 2;
     position: absolute;
-    width: 30%;
+    width: 30%;    
+    min-width: 350px;
     left: 33%;
     top: 20%;
     padding: 20px 0px;
@@ -151,4 +162,119 @@ label span {
     margin: 5px 15%;
     border-radius: 10px;
     padding: 2px 10px;
+}
+
+#bottomNav{
+    display: inline; 
+    padding-right: 20%; 
+    margin-top: 10px;
+}
+
+
+
+@media only screen and (max-width:650px){
+    th,td{
+        font-size: 12px;
+        width:auto;
+        padding-left: 5px;
+    }
+
+    label span {
+        height: 10px;
+        width: 10px;
+    }
+    #users-table{
+        padding: 10px;
+    }
+    #get-users {
+        margin-top: 0px;
+        padding: 5px;
+    }
+    div p {
+        height: 18px;
+        width: 18px;
+        font-size: 10px;
+    }
+
+        
+    #delete-select{
+        padding: 0px;
+        font-size: 12px;
+    }
+
+    #fetch {
+        margin-top: 10px;
+        padding: 5px 10px;
+        font-size: 15px;
+    }
+
+    h1 {
+        font-size: 1.7rem;
+        margin-top: 20px;
+    }
+
+    #users-table{
+        border: none;
+    }
+
+    #edit-box{
+        left: 15%;
+        top: 20%;
+    }
+
+    
+    #searchtext {
+        width: 200px;
+        font-size: 12px;
+    }
+
+    #search{
+        font-size: 12px;
+        padding: 2px 5px;
+    }
+
+
+}
+
+@media only screen and (max-width:400px){
+    th,td{
+        font-size: 10px;
+        padding-left: 5px;
+    }
+
+    label span {
+        height: 8px;
+        width: 8px;
+    }
+    #users-table{
+        padding: 5px;
+    }
+
+    #edit-box{
+        min-width: 250px;
+        padding: 10px 0px;
+    }
+    
+    /* heading in edit box  */
+    #edit-box h3{
+        font-size: 18px;
+    }
+    
+    /* input fields in edit box  */
+    #edit-box input{
+        width: 80%;
+        margin: 5px 10%;
+        padding: 1px 5px;
+        font-size: 12px;
+    }
+    
+    /* update button in edit box  */
+    #edit-box button{
+        width: 70%;
+        margin: 5px 15%;
+        border-radius: 10px;
+        padding: 2px 5px;
+        font-size: 12px;
+    }
+    
 }
