@@ -1,0 +1,27 @@
+{
+  "name": "adminui",
+  "version": "1.0.0",
+  "description": "This application is created to fetch all the users registered, Delete users, Modify the users data such as name, email and there role in organisation. Feature to select multiple users and delete them also added. Search bar is also provided to search data on their name, email and role. This app is also hosted thought github on https://pradeep-thombre.github.io/AdminUI/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pradeep-thombre/AdminUI.git"
+  },
+  "author": "Pradeep Thombre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pradeep-thombre/AdminUI/issues"
+  },
+  "homepage": "https://github.com/pradeep-thombre/AdminUI#readme",
+  "dependencies": {
+    "connect-flash": "^0.1.1",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.1",
+    "nodemon": "^2.0.15",
+    "routes": "^2.1.0"
+  }
+}
