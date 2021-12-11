@@ -13,21 +13,23 @@
     </head>
 <body>
 
-    <!-- top div of page  -->
-    <div id="get-users">
+    <div id="get-users">                                                            <!-- top div of page  -->
 
-        <!-- heading of the page  -->
-        <h1 >Get all the Users</h1>
-        <!-- button to fetch all users  -->
-        <button type="button" id="fetch">Fetch All Users</button>
-
+        <h1 >Get all the Users</h1>                                                 <!-- heading of the page  -->
         
+        <button type="button" id="fetch">Fetch All Users</button>                   <!-- button to fetch all users  -->
+
     </div>
     
-    <div id="container">
-    </div>
-    <img src="https://static.wixstatic.com/media/5afaed_de5aeb7071fc4685866e5ef6b9f9b0f0~mv2.gif" alt="" id="animImg">
-    <button id="delete-all-btn"></i>Delete Selected</button>  <!--button for deleting selected elements-->
+
+    <!-- main container contains table  -->
+    <div id="container"></div>                                                
+
+     <!--button for deleting selected elements-->
+    <button id="delete-all-btn"></i>Delete Selected</button> 
+
+    <!-- animation gif for better user experience and error handling  -->
+    <img src="https://static.wixstatic.com/media/5afaed_de5aeb7071fc4685866e5ef6b9f9b0f0~mv2.gif" alt="" id="animImg"> 
     <img src="https://assets.materialup.com/uploads/c13818e8-9e42-4f4d-b657-38743a81b270/preview.gif" id="dataError" alt="404 Not Found">
     
 
@@ -51,7 +53,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
     <script src="Js/dataLoad.js"></script>
-    <script src="Js/clickHandler.js"></script>
     <script src="Js/functions.js"></script>
 </body>
 </html>

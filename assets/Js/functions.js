@@ -2,21 +2,25 @@
 
 // -------------------------------------click listeners ----------------------------------------
 
+// update users darta button - it updates the modified data in map
 $("#update-button").click(function () {
     $('#edit-box').hide();
+    // creating doc of modified data 
     var doc={
         id:editId,
         name:$("#edit-name").val(),
         email:$("#edit-email").val(),
         role:$("#edit-role").val(),
     }
+    // updating in map 
     userMap.set(editId,doc);
+    // updating data in rows 
     $('#e'+editId).html(doc.email);
     $('#n'+editId).html(doc.name);
     $('#r'+editId).html(doc.role);
 });
 
-
+// dalate all button to delete selected rows
 $("#delete-all-btn").click( function(){
     const select = document.getElementsByClassName('select');
     for(let i=select.length-1;i>=0; i--){
@@ -28,7 +32,7 @@ $("#delete-all-btn").click( function(){
     reloadtable();
 });
 
-
+// this function selects all the rows for the table 
 function selectAll() {
     console.log(document.getElementById('select-all'));
     const select = document.getElementsByClassName('select');
@@ -46,7 +50,7 @@ function selectAll() {
 // ----------------------------------functions -----------------------------------------
 
 
-
+// it shows edit box to modify users data 
 function edit_click(clicked_id){
     $("#edit-box").show();
     $("#edit-name").val(userMap.get(clicked_id).name);
@@ -67,6 +71,7 @@ function delRow(id){
     tablebody.removeChild(element);
 }
 
+// this function reloads table once data is modified 
 function reloadtable(){
     $("#container").empty();
     loadTable();
