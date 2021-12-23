@@ -4,6 +4,7 @@
   "description": "This application is created to fetch all the users registered, Delete users, Modify the users data such as name, email and there role in organisation. Feature to select multiple users and delete them also added. Search bar is also provided to search data on their name, email and role. This app is also hosted thought github on https://pradeep-thombre.github.io/AdminUI/",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
