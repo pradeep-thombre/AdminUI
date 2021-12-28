@@ -4,7 +4,7 @@ const app = express();
 const expressLayouts = require('express-ejs-layouts');
 
 // setting a port 
-const port = 8000;
+const port = process.env.PORT||8000;
 
 // setting express and static files 
 app.use(express.urlencoded());
